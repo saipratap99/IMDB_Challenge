@@ -43,3 +43,16 @@ input[type="search"] {
   color: rgb(101, 101, 255);
   width: 100%;
 }
+
+.card {
+  margin: 5px;
+  background-color: transparent;
+}
+
+.card-img-top {
+  max-height: 250px;
+}
+
+.card:hover {
+  transform: scale(1.2);
+}
