@@ -1,8 +1,8 @@
 hhh
 
-rails g Language lang:string
+rails g model Language lang:string:uniq
 
-rails g model Category category:string
+rails g scaffold Category category:string
 
 rails g scaffold Movie title:string release_date:date rating:decimal trailer_link:string description:string story_line:string category:references language:references
 
@@ -10,12 +10,16 @@ rails g model Movie_detail runtime:string movie:references
 
 rails g model Genre genre_type:string
 
-rails g model Photo img_url:string movie:string
+rails g model Photo img_url:string movie:references
 
 rails g model MovieGenre movie:references genre:references
 
 rails g model Department name:string
 
-rails g model CastCrewDetails name:string
+rails g model CastCrewDetail name:string
 
+rails g scaffold MovieCast role_name:string movie:references cast_crew_detail:references 
 
+rails g scaffold MovieCrew movie:references cast_crew_detail:references department:references
+
+add_index :languages, :lang, unique: true
