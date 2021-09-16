@@ -1,0 +1,21 @@
+hhh
+
+rails g Language lang:string
+
+rails g model Category category:string
+
+rails g scaffold Movie title:string release_date:date rating:decimal trailer_link:string description:string story_line:string category:references language:references
+
+rails g model Movie_detail runtime:string movie:references
+
+rails g model Genre genre_type:string
+
+rails g model Photo img_url:string movie:string
+
+rails g model MovieGenre movie:references genre:references
+
+rails g model Department name:string
+
+rails g model CastCrewDetails name:string
+
+

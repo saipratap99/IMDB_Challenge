@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_115127) do
+ActiveRecord::Schema.define(version: 2021_09_16_125319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,24 +25,28 @@ ActiveRecord::Schema.define(version: 2021_09_16_115127) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category"], name: "index_categories_on_category", unique: true
   end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_departments_on_name", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
     t.string "genre_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_type"], name: "index_genres_on_genre_type", unique: true
   end
 
   create_table "languages", force: :cascade do |t|
     t.string "lang"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["lang"], name: "index_languages_on_lang", unique: true
   end
 
   create_table "movie_casts", force: :cascade do |t|
@@ -96,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_115127) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_movies_on_category_id"
     t.index ["language_id"], name: "index_movies_on_language_id"
+    t.index ["title"], name: "index_movies_on_title", unique: true
   end
 
   create_table "photos", force: :cascade do |t|
