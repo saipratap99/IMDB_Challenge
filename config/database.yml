@@ -23,6 +23,9 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
+  user: postgres
+  password: changeme
   database: IMDB_development
 
   # The specified database role being used to connect to postgres.
@@ -81,5 +84,3 @@ test:
 production:
   <<: *default
   database: IMDB_production
-  username: IMDB
-  password: <%= ENV['IMDB_DATABASE_PASSWORD'] %>
