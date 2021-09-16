@@ -1,0 +1,45 @@
+body {
+  background-color: rgba(0, 0, 0, 0.918);
+  color: white;
+  font-family: "Karla", sans-serif;
+}
+
+.dropdown-menu {
+  background-color: #343a40;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+.dropdown-menu form {
+  color: white;
+}
+
+.dropdown-menu form:hover {
+  color: #343a40;
+}
+
+.dropdown-menu a {
+  color: white;
+}
+
+input[type="search"] {
+  background-color: rgb(27, 27, 27);
+  border: 0px;
+  padding-right: 0px;
+  width: 100%;
+}
+
+.search-bar::placeholder {
+  color: rgb(101, 101, 255);
+  width: 100%;
+}
