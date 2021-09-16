@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_114424) do
+ActiveRecord::Schema.define(version: 2021_09_16_115127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cast_crew_details", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,12 +45,42 @@ ActiveRecord::Schema.define(version: 2021_09_16_114424) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "movie_casts", force: :cascade do |t|
+    t.string "role_name"
+    t.bigint "movie_id", null: false
+    t.bigint "cast_crew_detail_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cast_crew_detail_id"], name: "index_movie_casts_on_cast_crew_detail_id"
+    t.index ["movie_id"], name: "index_movie_casts_on_movie_id"
+  end
+
+  create_table "movie_crews", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "cast_crew_detail_id", null: false
+    t.bigint "department_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cast_crew_detail_id"], name: "index_movie_crews_on_cast_crew_detail_id"
+    t.index ["department_id"], name: "index_movie_crews_on_department_id"
+    t.index ["movie_id"], name: "index_movie_crews_on_movie_id"
+  end
+
   create_table "movie_details", force: :cascade do |t|
     t.string "runtime"
     t.bigint "movie_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["movie_id"], name: "index_movie_details_on_movie_id"
+  end
+
+  create_table "movie_genres", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_movie_genres_on_genre_id"
+    t.index ["movie_id"], name: "index_movie_genres_on_movie_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -64,7 +106,14 @@ ActiveRecord::Schema.define(version: 2021_09_16_114424) do
     t.index ["movie_id"], name: "index_photos_on_movie_id"
   end
 
+  add_foreign_key "movie_casts", "cast_crew_details"
+  add_foreign_key "movie_casts", "movies"
+  add_foreign_key "movie_crews", "cast_crew_details"
+  add_foreign_key "movie_crews", "departments"
+  add_foreign_key "movie_crews", "movies"
   add_foreign_key "movie_details", "movies"
+  add_foreign_key "movie_genres", "genres"
+  add_foreign_key "movie_genres", "movies"
   add_foreign_key "movies", "categories"
   add_foreign_key "movies", "languages"
 end
