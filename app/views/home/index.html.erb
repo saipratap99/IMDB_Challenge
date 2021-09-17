@@ -1,61 +1,8 @@
 <div class="main mx-auto">
 
-  <div class="initial-loading flex-container">
-    <div class="row mx-5 mb-5">
-        <div class="w-100 my-3 "><h4 class="primary-dark">English</h4></div>
-        <div class="card mx-3 col-lg-2 col-md-3 mb-5" style="width: 14%;max-height: 250px;">
-          <%= link_to '/movies' do %>
-            <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "card-img-top rounded" %>
-          <% end %>
-          <h5 class="text-center">Arjun Reddy</h5>
-        </div>
-        <div class="card mx-3 col-lg-2 col-md-3 mb-5" style="width: 14%;max-height: 250px;">
-          <%= link_to '/movies' do %>
-            <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "card-img-top rounded" %>
-          <% end %>
-          <h5 class="text-center">Arjun Reddy</h5>
-        </div>
-
-        <div class="card mx-3 col-lg-2 col-md-3 mb-5" style="width: 14%;max-height: 250px;">
-          <%= link_to '/movies' do %>
-            <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "card-img-top rounded" %>
-          <% end %>
-          <h5 class="text-center">Arjun Reddy</h5>
-        </div>
-
-        <div class="card mx-3 col-lg-2 col-md-3 mb-5" style="width: 14%;max-height: 250px;">
-          <%= link_to '/movies' do %>
-            <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "card-img-top rounded" %>
-          <% end %>
-          <h5 class="text-center">Arjun Reddy</h5>
-        </div>
-    </div>
-
-    <div class="row mx-5 mb-5">
-        <div class="w-100 my-3 "><h4 class="primary-dark">English</h4></div>
-        <div class="card mx-3 col-lg-2 col-md-3" style="width: 14%;max-height: 250px;">
-          <%= link_to '/movies' do %>
-            <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "card-img-top rounded" %>
-          <% end %>
-          <h5 class="text-center">Arjun Reddy</h5>
-        </div>
-        <div class="card mx-3 col-lg-2 col-md-3" style="width: 14%;max-height: 250px;">
-          <%= link_to '/movies' do %>
-            <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "card-img-top" %>
-          <% end %>
-          <h5 class="text-center">Arjun Reddy</h5>
-        </div>
-        <div class="card mx-3 col-lg-2 col-md-3" style="width: 14%;max-height: 250px;">
-          <%= link_to '/movies' do %>
-            <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "card-img-top" %>
-          <% end %>
-          <h5 class="text-center">Arjun Reddy</h5>
-        </div>
-        <div class="card mx-3 col-lg-2 col-md-3" style="width: 14%;max-height: 250px;">
-          <%= link_to '/movies' do %>
-            <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "card-img-top" %>
-          <% end %>
-          <h5 class="text-center">Arjun Reddy</h5>
-        </div>
+  <div class="initial-loading">
+    <% @languages.each do |language| %>
+      <%= render partial: "row", locals: {language: language} %>
+    <% end %>
   </div>
 </div>
