@@ -1,6 +1,7 @@
 class Movie < ApplicationRecord
   belongs_to :category
   belongs_to :language
+  has_one :movie_detail
   has_many :photos
   has_many :movie_genres, dependent: :destroy
   has_many :genres, through: :movie_genres
