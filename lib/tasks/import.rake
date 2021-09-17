@@ -30,4 +30,12 @@ namespace :import do
       Department.where(row.to_hash).first_or_create
     end
   end
+
+  task movies: :environment do
+    file = Rails.root.join("lib/assets/movies.csv")
+    CSV.foreach(file, :headers => true) do |row|
+      Movie.add_record(row.to_hash)
+      # puts(row.to_hash["photo" + 1.to_s])
+    end
+  end
 end
