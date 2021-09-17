@@ -1,21 +1,25 @@
 <div class="col-lg-8 col-md-12 mx-auto">
   <div class="row p-3 flex-container">
-    <div class="col-lg col-md-8 primary-dark text-bold display-4"><strong>Arjun Reddy</strong></div>
+    <div class="col-lg col-md-8 primary-dark text-bold display-4"><strong><%= @movie.title %></strong></div>
     <div class="col-lg col-md-4 d-flex flex-column justify-content-end text-right">
       <div><h4>RATING</h4></div>
       <div>
         <span><i class="fa fa-star fa-2x" style="color: #FFD700;"></i></span>
-        <span class="mx-3" style="font-size: 30px"><strong style="font-size: 30px">8.6</strong><span class="text-muted">/10</span></span>
+        <span class="mx-3" style="font-size: 30px"><strong style="font-size: 30px"><%= @movie.rating %></strong><span class="text-muted">/10</span></span>
       </div>
     </div>
   </div>
 
   <div class="row p-3 media">
     <div class="col-lg-3 col-md-12 poster">
-      <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "rounded", style: "width: 90%; height: 345px;" %>
+      <% if !@movie.photos.first.nil? and !@movie.photos.first.img_url.include? "imdb" %>
+          <%= image_tag @movie.photos.first.img_url, class: "rounded", style: "width: 90%; height: 345px;" %>
+        <% else %>
+          <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "rounded", style: "width: 90%; height: 345px;" %>
+        <% end %>
     </div>
     <div class="col-lg-9 col-md-12 trailer">
-      <iframe width="100%" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+      <iframe width="100%" height="345" src="<%= @movie.trailer_link %>">
     </div>
   </div>
 </div>
