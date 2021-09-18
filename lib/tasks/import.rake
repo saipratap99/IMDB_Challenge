@@ -38,4 +38,12 @@ namespace :import do
       # puts(row.to_hash["photo" + 1.to_s])
     end
   end
+
+  task movie_cast: :environment do
+    file = Rails.root.join("lib/assets/movies.csv")
+    CSV.foreach(file, :headers => true) do |row|
+      movie_hash = row.to_hash
+      puts(movie_hash)
+    end
+  end
 end

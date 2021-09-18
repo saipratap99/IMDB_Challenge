@@ -5,10 +5,10 @@
       <div class="d-flex justify-content-start">
         <div class="text-muted mx-3"><%= @movie.release_date.year %></div>
         <div class="text-muted mx-3"><%= @movie.category.category %></div>
-        <div class="text-muted mx-3">2hr 33min</div>
+        <div class="text-muted mx-3"><%= @movie.movie_detail.runtime %></div>
       </div>
     </div>
-    <div class="col-lg col-md-4 d-flex flex-column justify-content-end text-right">
+    <div class="col-lg col-md-4 d-flex flex-column justify-content-end text-lg-right text-md-left">
       <div><h4>RATING</h4></div>
       <div>
         <span><i class="fa fa-star fa-2x" style="color: #FFD700;"></i></span>
@@ -25,7 +25,8 @@
           <%= image_tag "https://fullygarage.com/wp-content/uploads/2018/02/Arjun-Reddy-Movie-Printed-Poster-scaled.jpg", class: "rounded", style: "width: 90%; height: 345px;" %>
         <% end %>
     </div>
-    <div class="col-lg-9 col-md-12 trailer border border-info" style="width:100%;height:345px">
+    <div class="col-lg-9 col-md-12 trailer" style="width:100%;height:345px">
+      <iframe width="100%" height="343px" src="<%= @movie.trailer_link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -39,22 +40,22 @@
   </div>
   <div class="row col-lg-12">
     <div class="col-lg-12 text-info"><h3> Cast </h3></div>
-    <div class="col-lg-12 d-flex -flex-column">
+    <div class="col-lg-12 d-flex flex-column">
     <% @movie.movie_casts.each do |m| %>
       <div class="mx-3">
-        <span class="mx-3" style="font-size: 23px;"><%= m.role_name %></span>
-        <span class="mx-3" style="font-size: 23px;"><%= CastCrewDetail.find(m.cast_crew_detail_id).name %></span>
+        <span class="mx-3" style="font-size: 23px;"><%= m.role_name %>:</span>
+        <span class="mx-1" style="font-size: 23px;"><%= m.cast_crew_detail.name %></span>
       </div>
       <%end%>
     </div>
   <div>
   <div class="row col-lg-12">
-    <div class="col-lg-12 text-info"><h3> Cast </h3></div>
-    <div class="col-lg-12 d-flex -flex-column">
+    <div class="col-lg-12 text-info"><h3> Crew </h3></div>
+    <div class="col-lg-12 d-flex flex-column">
     <% @movie.movie_crews.each do |m| %>
       <div class="mx-3">
-        <span class="mx-3" style="font-size: 23px;"><%= m.department.name %></span>
-        <span class="mx-3" style="font-size: 23px;"><%= CastCrewDetail.find(m.cast_crew_detail_id).name %></span>
+        <span class="mx-3" style="font-size: 23px;"><%= m.department.name %>: </span>
+        <span class="mx-1" style="font-size: 23px;"><%= m.cast_crew_detail.name %></span>
       </div>
       <%end%>
     </div>
