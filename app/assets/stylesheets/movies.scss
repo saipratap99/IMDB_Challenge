@@ -6,3 +6,30 @@
   justify-content: space-between;
   align-items: flex-end;
 }
+
+.detail-bq {
+  padding: 5px;
+  border-left: 5px solid rgb(241, 241, 82);
+  color: #007bff;
+}
+
+.details {
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 576px) {
+  .details {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .details {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .details {
+    font-size: 1.2rem;
+  }
+}
