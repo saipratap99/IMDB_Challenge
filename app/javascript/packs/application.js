@@ -32,7 +32,7 @@ $(document).ready(function () {
   });
 
   $('.close-btn').click(()=>{
-    $("#search-res").empty();
+    $(".query-res").empty();
     $("#search-res").css("display","none");
   });
 

@@ -13,6 +13,11 @@ class MoviesController < ApplicationController
 
   def search
     query = params[:query]
+    @movies = Movie.where("title ILIKE ?", "%#{query}%")
+    @artists = CastCrewDetail.where("name ILIKE ?", "%#{query}%")
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /movies/new

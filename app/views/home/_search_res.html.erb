@@ -1,15 +1,23 @@
-<div id="search-res" class="pl-3 pb-3 overflow-auto position-absolute">
-  <div class="pull-right"><button type="button" class="close-btn btn btn-sm btn-outline-danger">X</button></div>
+<% if !movies.nil? && movies.count > 0 %>
   <h4>Movies</h4>
   <div class="d-flex flex-column">
-    <%= link_to "Movie 1", "/movies/1/" %>
-    <%= link_to "Movie 2", "/movies/1/" %>
-    <%= link_to "Movie 3", "/movies/1/" %>
+    <% movies.order(:title).each do |movie| %>
+      <%= link_to movie.title, "/movies/#{movie.id}/" %>
+    <%end%>
   <div>
+<%end%>
+<%if !artists.nil? && artists.count > 0 %>
   <h4>Artists</h4>
   <div class="d-flex flex-column">
-    <%= link_to "Artist(Movie 1)", "/movies/1/" %>
-    <%= link_to "Artist(Movie 2)", "/movies/1/" %>
-    <%= link_to "Artist(Movie 3)", "/movies/1/" %>
+    <% artists.order(:name).each do |artist| %>
+      <% artist.movies.order(:title).each do |movie| %>
+        <% nores = false %>
+        <%= link_to "#{movie.title} (#{artist.name})", "/movies/#{movie.id}/" %>
+      <%end%>
+    <%end%>
   <div>
-</div>
+<%end%>
+
+<% if (movies.nil? || movies.count == 0) && nores %>
+  <p class="lead">No results! :(</div>
+<%end%>
