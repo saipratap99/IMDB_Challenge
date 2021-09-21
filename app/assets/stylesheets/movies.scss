@@ -16,20 +16,39 @@
 .details {
   font-size: 1.5rem;
 }
-@media screen and (max-width: 576px) {
-  .details {
-    font-size: 0.8rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .details {
-    font-size: 1rem;
-  }
-}
 
 @media screen and (max-width: 992px) {
   .details {
     font-size: 1.2rem;
+  }
+  .search-section {
+    max-width: 80%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .details {
+      font-size: 1rem;
+    }
+    .search-section {
+      max-width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .details {
+      font-size: 0.8rem;
+    }
+    .search-section {
+      max-width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .details {
+      font-size: 0.8rem;
+    }
+    .search-section {
+      max-width: 60%;
+    }
   }
 }

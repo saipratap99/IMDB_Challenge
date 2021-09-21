@@ -15,3 +15,20 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$(document).ready(function () {
+  alert("hello");
+  let search_box = $('#search-bar');
+
+  search_box.keyup(function(){
+    console.log($(this).val());
+    $.ajax({
+      type: "GET",
+      url: "/search",
+      data: {query: $(this).val()},
+      success: ()=>{alert("suc");},
+      error: ()=>{alert("err");}
+
+    })
+  });
+});

@@ -11,6 +11,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def search
+    query = params[:query]
+  end
+
   # GET /movies/new
   def new
     @movie = Movie.new

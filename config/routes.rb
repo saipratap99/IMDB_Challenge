@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "home#index"
+  get "/search", to: "movies#search", as: "search"
   resources :movie_crews
   resources :movie_casts
   resources :movies
