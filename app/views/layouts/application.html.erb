@@ -40,7 +40,7 @@
       <div class="collapse navbar-collapse" id="myNav">
         <div class="mx-lg-auto search-section" >
           <input id="search-bar" autocomplete="off" class="form-control mr-sm-2 search-bar" type="search" style="color: rgb(101, 101, 255);" placeholder="Search" aria-label="Search">
-          <div id="search-res" class="d-none"></div>
+          <%= render partial: "home/search_res", locals: {} %>
         </div>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">

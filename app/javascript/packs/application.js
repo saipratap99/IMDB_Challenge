@@ -17,7 +17,7 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 $(document).ready(function () {
-  alert("hello");
+  // alert("hello");
   let search_box = $('#search-bar');
 
   search_box.keyup(function(){
@@ -26,9 +26,15 @@ $(document).ready(function () {
       type: "GET",
       url: "/search",
       data: {query: $(this).val()},
-      success: ()=>{alert("suc");},
-      error: ()=>{alert("err");}
-
-    })
+      success: ()=>{console.log("Success");},
+      error: ()=>{console.log("Error!");}
+    });
   });
+
+  $('.close-btn').click(()=>{
+    $("#search-res").empty();
+    $("#search-res").css("display","none");
+  });
+
+
 });

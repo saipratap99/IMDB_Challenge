@@ -60,3 +60,15 @@ input[type="search"] {
 .search-section {
   width: 600px;
 }
+
+#search-res {
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.918);
+  border-bottom: 2px solid rgb(101, 101, 255);
+  border-left: 2px solid rgb(101, 101, 255);
+  border-right: 2px solid rgb(101, 101, 255);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  z-index: 999;
+  width: 35%;
+}

@@ -25,12 +25,20 @@
     max-width: 80%;
   }
 
+  @media screen and (max-width: 1200px) {
+    #search-res {
+      width: 55%;
+    }
+  }
   @media screen and (max-width: 768px) {
     .details {
       font-size: 1rem;
     }
     .search-section {
       max-width: 80%;
+    }
+    #search-res {
+      width: 65%;
     }
   }
 
@@ -40,6 +48,9 @@
     }
     .search-section {
       max-width: 80%;
+    }
+    #search-res {
+      width: 75%;
     }
   }
 
@@ -49,6 +60,9 @@
     }
     .search-section {
       max-width: 60%;
+    }
+    #search-res {
+      width: 80%;
     }
   }
 }
