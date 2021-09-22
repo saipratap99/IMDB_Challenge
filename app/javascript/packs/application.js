@@ -33,6 +33,7 @@ $(document).ready(function () {
 
   $('.close-btn').click(()=>{
     $(".query-res").empty();
+    search_box.val('');
     $("#search-res").css("display","none");
   });
 

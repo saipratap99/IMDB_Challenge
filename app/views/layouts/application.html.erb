@@ -43,7 +43,7 @@
           <div id="search-res" class="pl-3 pb-3 overflow-auto position-absolute">
             <div class="pull-right"><button type="button" class="close-btn btn btn-sm btn-outline-danger">X</button></div>
             <div class="query-res">
-            <%= render partial: "home/search_res", locals: {movies: @movies, artists: @artists, nores: true} %>
+              <%= render partial: "home/search_res", locals: {movies: @movies, artists: @artists, nores: true} %>
             </div>
           </div>
         </div>
@@ -52,8 +52,7 @@
             <%= link_to 'Movies' , '/movies'%>
           </li>
           <li class="nav-item dropdown">
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            </div>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
           </li>
         </ul>
       </div>

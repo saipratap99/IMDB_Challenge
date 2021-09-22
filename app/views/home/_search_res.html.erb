@@ -4,7 +4,7 @@
     <% movies.order(:title).each do |movie| %>
       <%= link_to movie.title, "/movies/#{movie.id}/" %>
     <%end%>
-  <div>
+  </div>
 <%end%>
 <%if !artists.nil? && artists.count > 0 %>
   <h4>Artists</h4>
@@ -15,9 +15,9 @@
         <%= link_to "#{movie.title} (#{artist.name})", "/movies/#{movie.id}/" %>
       <%end%>
     <%end%>
-  <div>
+  </div>
 <%end%>
 
 <% if (movies.nil? || movies.count == 0) && nores %>
-  <p class="lead">No results! :(</div>
+  <p class="lead">No results! :(</p>
 <%end%>
