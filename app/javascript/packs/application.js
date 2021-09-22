@@ -22,13 +22,18 @@ $(document).ready(function () {
 
   search_box.keyup(function(){
     console.log($(this).val());
-    $.ajax({
-      type: "GET",
-      url: "/search",
-      data: {query: $(this).val()},
-      success: ()=>{console.log("Success");},
-      error: ()=>{console.log("Error!");}
-    });
+    if($(this).val() !== ''){
+      $.ajax({
+        type: "GET",
+        url: "/search",
+        data: {query: $(this).val()},
+        success: ()=>{console.log("Success");},
+        error: ()=>{console.log("Error!");}
+      });
+    }else{
+      $(".query-res").empty();
+      $(".query-res").html("Please enter movie name or artist name!");
+    }
   });
 
   $('.close-btn').click(()=>{
