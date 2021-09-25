@@ -13,8 +13,10 @@ class MoviesController < ApplicationController
 
   def search
     query = params[:query]
-    @movies = Movie.where("title ILIKE ?", "%#{query}%")
-    @artists = CastCrewDetail.where("name ILIKE ?", "%#{query}%")
+    final_query = query.split("").map { |s| s + "%" }
+    final_query = final_query.join
+    @movies = Movie.where("title ILIKE ?", "%#{final_query}")
+    @artists = CastCrewDetail.where("name ILIKE ?", "%#{final_query}")
     respond_to do |format|
       format.js
     end
